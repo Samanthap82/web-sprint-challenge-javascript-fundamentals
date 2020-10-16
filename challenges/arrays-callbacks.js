@@ -20,10 +20,11 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-// const displayNames
-zooAnimals.forEach(displayNames => {
-
-console.log(displayNames.animal_name.scientific_name);
+const displayNames = [];
+zooAnimals.forEach(animal=>{
+  displayNames.push({name: animal.animal_name, scientific: animal.scientific_name})
+})
+console.log(displayNames);
 
 /* Request 2: .map()
 
@@ -42,27 +43,22 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 
-function filterloop(arr)
-const lowPopulationAnimals = [];
-  for(let i = 0; i < arr.length; i++){
-   if( arr[i].population < 5){
-     lowPopulationAnimals.push(arr[i].animal_name)
-    console.log(arr[i.animal_name])
-   }
-   return lowPopulationAnimals;
-  }
-
-filterloop(lowPopulationAnimals);
+function filterLoop(arr) {
+  const lowPopulationAnimals = arr.filter(animal => {
+    return animal.population < 5
+  });
+  return lowPopulationAnimals;
+}
+console.log(filterLoop(zooAnimals))
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-// let populationTotal = 0;
-populationTotal.reduce(acc, items.population) =>{
-  return acc + items.population
-},0)
+
+let populationTotal = zooAnimals.reduce((acc, cv) =>{
+  return acc + cv.population},0)
   console.log(populationTotal);
 
 
@@ -74,8 +70,9 @@ populationTotal.reduce(acc, items.population) =>{
   * The last parameter accepts a callback
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
-function consume(a,b,cb)
+function consume(a,b,cb){
 return cb(a, b)
+}
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -87,7 +84,10 @@ function consume(num1, num2, cb ) {
 }
 const add = (num1, num2) => num1 + num2;
 const multiply = (num1, num2) => num1 * num2;
-const greeting = (first-name, last-name)
+function greeting(firstName, lastName) {
+  return `Hello ${firstName} ${lastName}, nice to meet you!`;
+}
+
 
   
 
